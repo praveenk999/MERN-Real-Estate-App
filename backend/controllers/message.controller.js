@@ -17,13 +17,7 @@ export const addMessage = async (req,res)=>{
 
         if(!chat) return res.status(404).json({message:"chat Not found !"})
 
-        const message = await prisma.message.create({
-            data:{
-                text,
-                chatId,
-                userId:tokenUserId
-            },
-        });
+      
 
         await prisma.chat.update({
             where:{
